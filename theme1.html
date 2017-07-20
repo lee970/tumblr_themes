@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro">
+        
+        <title>{Title}</title>
+        {block:Description}
+            <meta name="description" content="{MetaDescription}" />
+        {/block:Description}
+        
+        <meta name="color:Text Color" content="#666" />
+        <meta name="color:Link Color" content="#8dd4af" />
+        <meta name="color:Highlight Color" content="#f1f5f8" />
+        <meta name="font:Title Font" content="Source Sans Pro" />
+        <meta name="font:Body Font" content="Source Sans Pro" />
+        <meta name="font:Menu Button Font" content="Source Sans Pro" />
+        <meta name="text:Link 1 URL" content="" />
+        <meta name="text:Link 1 description" content="" />
+        <meta name="color:Link 1 color" content="#56bc8a" />
+        <meta name="text:Link 2 URL" content="" />
+        <meta name="text:Link 2 description" content="" />
+        <meta name="color:Link 2 color" content="#529ecc" />
+        <meta name="text:Link 3 URL" content="" />
+        <meta name="text:Link 3 description" content="" />
+        <meta name="color:Link 3 color" content="#a77dc2" />
+        <meta name="text:Link 4 URL" content="" />
+        <meta name="text:Link 4 description" content="" />
+        <meta name="color:Link 4 color" content="#e57b92" />
+        
+        <style type="text/css">
+            body {
+                font-family: {font:Body Font};
+                font-size: 15px;
+                font-weight: lighter;
+                letter-spacing: 0px;
+                line-height: 150%;
+                color: {color:Text Color};
+            }
+            
+            a {
+                color: {color:Link Color};
+                text-decoration: underline;
+            }
+            
+            a:hover {
+                opacity: 0.7;
+                text-decoration: none;
+            }
+            
+            /* h1 is only used for the blog title in the menu */
+            h1 {
+                font-family: {font:Title Font};
+                font-size: 31px;
+                text-align: center;
+                letter-spacing: 0px;
+                padding: 15px;
+                color: #555;
+                margin: 10px;
+            }
+            
+            /* post title */
+            h2 {
+                font-family: {font:Title Font};
+                text-align: left;
+                margin: 0px 0px 10px 0px;
+            }
+            
+            .content {
+                width: 1200px;
+                margin: auto;
+            }
+            
+            /* MENU */
+            
+            .menu {
+                display: block;
+                position: fixed;
+                max-width: 300px;
+                height: auto;
+                margin: 15% 100px 10px 0%;
+                padding: 0px 30px 30px 30px;
+                border-radius: 5px;
+                background-color: #eee;
+            }
+            
+            #menu-portrait {
+                max-width: 80px;
+                padding: 10px;
+                margin: -50px 100px -10px 100px;
+                background-color: #fff;
+                border: #eee 1px solid;
+                border-radius: 5px;
+            }
+            
+            #description {
+                max-width: 240px;
+                padding: 20px;
+                margin: auto;
+                margin-bottom: 20px;
+                border-radius: 5px;
+                text-align: justify;
+                font-size: 12px;
+                letter-spacing: 0px;
+                background-color: #fff;
+            }
+            
+            #nav {
+                max-width: 300px;
+                margin: auto;
+                text-align: center;
+                line-height: 300%;
+            }
+            
+            .menu-button {
+                margin: 5px;
+                padding: 10px 14px;
+                border-radius: 5px;
+                color: #fff;
+                text-decoration: none;
+                font-family: {font:Menu Button Font};
+                font-size: 12px;
+                letter-spacing: 1px;
+            }
+            
+            .menu-button:hover {
+                
+            }
+            
+            #link1 {
+                background-color: {color:Link 1 color};
+                transition: background-color 0.4s, color 0.4s, font-weight 0.4s;
+            }
+            
+            #link1:hover {
+                background-color: #fff;
+                color: {color:Link 1 color};
+                font-weight: bold;
+                transition: background-color 0.4s, color 0.4s, font-weight 0.4s;
+            }
+            
+            #link2 {
+                background-color: {color:Link 2 color};
+                transition: background-color 0.4s, color 0.4s, font-weight 0.4s;
+            }
+            
+            #link2:hover {
+                background-color: #fff;
+                color: {color:Link 2 color};
+                font-weight: bold;
+                transition: background-color 0.4s, color 0.4s, font-weight 0.4s;
+            }
+            
+            #link3 {
+                background-color: {color:Link 3 color};
+                transition: background-color 0.4s, color 0.4s, font-weight 0.4s;
+            }
+            
+            #link3:hover {
+                background-color: #fff;
+                color: {color:Link 3 color};
+                font-weight: bold;
+                transition: background-color 0.4s, color 0.4s, font-weight 0.4s;
+            }
+            
+            #link4 {
+                background-color: {color:Link 4 color};
+                transition: background-color 0.4s, color 0.4s, font-weight 0.4s;
+            }
+            
+            #link4:hover {
+                background-color: #fff;
+                color: {color:Link 4 color};
+                font-weight: bold;
+                transition: background-color 0.4s, color 0.4s, font-weight 0.4s;
+            }
+            
+            /* PAGINATION */
+            
+            /* POSTS */
+            .posts {
+                margin: 0% 0% 0% 500px;
+                padding: 5% 0%;
+            }
+            
+            .post-container {
+                display: block;
+                max-width: 600px;
+                margin-bottom: 100px;
+                background-color: #fff;
+                border-radius: 5px;
+                border: #eee 50px solid;
+            }
+            
+            .post {
+                max-width: 500px;
+                margin: 0px;
+                padding: 50px;
+                z-index: 99;
+                background-color: ;
+            }
+            
+            #text {
+                max-width: 500px;
+                border-radius: 5px;
+                background-color: #fff;
+            }
+            
+            #photo {
+                max-width: 500px;
+                border-radius: 5px;
+                background-color: #fff;
+            }
+            
+            #caption {
+                max-width: 500px;
+                margin: px 20px;
+                padding: 0px 15px;
+                border-left: #ccc 2px dotted;
+            }
+            
+            #quote {
+                max-width: 500px;
+                font-family: {font:Title Font};
+                font-size: 27px;
+                font-style: italic;
+                line-height: 120%;
+            }
+            
+            #source {
+                margin: 20px auto 0px auto;
+                padding: 10px;
+                font-family: {font:Body Font};
+                font-size: 17px;
+                font-style: normal;
+                text-align: center;
+            }
+            
+            #link {
+                font-family: {font:Title Font};
+                font-size: 23px;
+                font-weight: bold;
+                text-align: left;
+                text-decoration: none;
+                color: {color:Link Color};
+                margin: 0px;
+            }
+            
+            #link:hover {
+                opacity: 0.7;
+                text-decoration: underline;
+            }
+            
+            #chat {
+                
+            }
+            
+            .chat-lines {
+                list-style-type: none;
+                padding: 0px 20px;
+                line-height: 200%;
+            }
+            
+            .chat-label {
+                font-weight: bold;
+            }
+            
+            #odd {
+                background-color: {color:Highlight Color};
+            }
+            
+            #even {
+                background-color:;
+            }
+            
+            .audio-player {
+                max-width: 500px;
+            }
+            
+            .post-footer {
+                display: block;
+                overflow: hidden;
+                width: 200px;
+                height: 28px;
+                margin: auto;
+                margin-bottom: -50px;
+                padding: 10px;
+                text-align: center;
+                background-color: #eee;
+            }
+            
+            .post-footer-button {
+                display: inline;
+                height: 15px;
+                margin: auto;
+                margin-top: -3px;
+                padding: 8px;
+                border-radius: 3px;
+                background-color: #fff;
+                color: {color:Text Color};
+                text-decoration: none;
+                font-family: {font:Menu Button Font};
+                font-size: 11px;
+                letter-spacing: 1px;
+                transition: opacity 0.4s;
+            }
+            
+            #reblog {
+                float: left;
+                padding: 8px 8px 8px;
+                transition: background-color 0.4s;
+            }
+            
+            #reblog:hover {
+                color: white;
+                background-color: #a7d2f4;
+                transition: background-color: 0.3s;
+            }
+            
+            #like {
+                float: right;
+                padding: 8px 8px 8px;
+            }
+            
+            #like:hover {
+                color: white;
+                background-color: #fcbdbf;
+                transition: background-color: 0.3s;
+            }
+            
+            /* custom CSS */
+            {CustomCSS}
+        </style>
+    </head>
+    <body><div class="content">
+        <!-- menu -->
+        <div class="menu">
+            <img id="menu-portrait" src="{PortraitURL-96}" />
+            <h1>{Title}</h1>
+            {block:Description}
+                <p id="description">{Description}</p>
+            {/block:Description}
+            <div id="nav">
+                <a class="menu-button" id="link1" href="{text:Link 1 URL}">{text:Link 1 description}</a>
+                <a class="menu-button" id="link2" href="{text:Link 2 URL}">{text:Link 2 description}</a>
+                <a class="menu-button" id="link3" href="{text:Link 3 URL}">{text:Link 3 description}</a>
+                <a class="menu-button" id="link4" href="{text:Link 4 URL}">{text:Link 4 description}</a>
+            </div>
+        </div>
+        
+        <!-- posts -->
+        <div class="posts">
+            {block:Posts inlineMediaWidth="500"}
+                <div class="post-container">
+                    <div class="post">
+                        {block:Text}
+                            {block:Title}<h2>{Title}</h2>{/block:Title}
+                            <div id="text">{Body}</div>
+                        {/block:Text}
+                        {block:Photo}
+                            <div id="photo">
+                                <img src="{PhotoURL-500}" />
+                            </div>
+                            {block:Caption}<div id="caption">{Caption}</div>{/block:Caption}
+                        {/block:Photo}
+                        {block:Photoset}
+                            <div id="photo">
+                                {Photoset-500}
+                                {block:Caption}<div id="caption">{Caption}</div>{/block:Caption}
+                            </div>
+                        {/block:Photoset}
+                        {block:Quote}
+                            <div id="quote">
+                                {Quote}
+                                {block:Source}<div id="source">— {Source} —</div>{/block:Source}
+                            </div>
+                        {/block:Quote}
+                        {block:Link}
+                            <div id="link">
+                                <a id="link" href="{URL}">{Name}</a>
+                            </div>
+                            {block:Description}<div>{Description}</div>{/block:Description}
+                        {/block:Link}
+                        {block:Chat}
+                            {block:Title}<h2>{Title}</h2>{/block:Title}
+                            <div id="chat">
+                                <ul class="chat-lines">
+                                    {block:Lines}
+                                        <li id="{Alt}">
+                                            {block:Label}<span class="chat-label">{Label} </span>{/block:Label}{Line}
+                                        </li>
+                                    {/block:Lines}
+                                </ul>
+                            </div>
+                        {/block:Chat}
+                        {block:Audio}
+                            <div class="audio-player">
+                                {block:AudioEmbed}{AudioEmbed-500}{/block:AudioEmbed}
+                                {block:AudioPlayer}{AudioPlayer}{/block:AudioPlayer}
+                            </div>
+                        {/block:Audio}
+                        {block:Video}{/block:Video}
+                        {block:Answer}{/block:Answer}
+                        
+                    </div>
+                    <!-- permalink -->
+                    <div class="post-footer">
+                        <span class="post-footer-button" id="reblog">{ReblogButton size="15" color="grey"}</span>
+                        <span><a class="post-footer-button" href="{Permalink}">{NoteCountWithLabel}</a></span>
+                        <span class="post-footer-button" id="like">{LikeButton size="15" color="grey"}</span>
+                    </div>
+                </div>
+            {/block:Posts}
+        </div>
+        
+        <!-- pages -->
+        
+
+        
+        <!-- footer -->
+        <footer>
+            
+        </footer></div>
+        
+        <!-- javascript -->
+        <script>
+            
+        </script>
+    </body>
+</html>
